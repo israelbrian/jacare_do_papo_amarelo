@@ -1,11 +1,16 @@
+// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "brand-green-dark": "#2F4858", // Exemplo de verde escuro
+        "brand-green-light": "#86A873", // Exemplo de verde claro
+        "brand-yellow": "#F2E3A0", // Exemplo de amarelo
+        "brand-background": "#2B3D41", // Tom de fundo baseado na imagem
+      },
+    },
   },
   plugins: [],
-}
+};
