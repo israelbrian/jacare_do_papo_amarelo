@@ -1,3 +1,5 @@
+import useResponsiveBg from "../hooks/useResponsiveBg";
+
 // src/pages/Home.jsx
 
 const Home = () => {
@@ -8,20 +10,25 @@ const Home = () => {
     { title: "Quiz" },
   ];
 
+  const backgroundImage = useResponsiveBg();
+
   return (
-    <div className="min-h-screen bg-brand-background text-white flex flex-col items-center justify-center p-4 animate-fade-in">
+    <div
+      style={{ backgroundImage }}
+      className="min-h-screen bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center p-4 animate-fade-in"
+    >
       <header className="text-center mb-12">
-        <h1 className="text-4xl md:text-6xl font-bold text-brand-yellow mb-4">
+        <h1 className="text-4xl md:text-6xl font-black text-gray-200 mb-4 -tracking-tight [text-shadow:4px_3px_3px_#084808]">
           Jacaré-de-Papo-Amarelo
         </h1>
-        <h2 className="text-xl md:text-2xl text-gray-300">
+        <h2 className="text-xl md:text-4xl font-semibold text-gray-200 [text-shadow:2px_4px_3px_#084808]">
           Explore o mundo deste incrível animal
         </h2>
       </header>
 
       <main className="w-full max-w-4xl">
         {/* Grid para os containers, responsivo */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 text-gray-300">
           {menuItems.map((item, index) => (
             <div
               key={index}

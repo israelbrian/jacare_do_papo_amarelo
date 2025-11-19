@@ -60,10 +60,7 @@ const Welcome = () => {
       const fadeOutStartTime = window.innerWidth < 768 ? 1 : 2; // 1s para mobile, 2s para desktop
 
       // Inicia o fade-out quando o tempo restante for menor ou igual ao definido
-      if (
-        videoElement.duration - videoElement.currentTime <=
-        fadeOutStartTime
-      ) {
+      if (videoElement.duration - videoElement.currentTime <= fadeOutStartTime) {
         setIsFadingOut(true);
         // Remove o listener para não ser chamado repetidamente
         videoElement.removeEventListener("timeupdate", handleTimeUpdate);
@@ -96,8 +93,8 @@ const Welcome = () => {
           Uma jornada pelo mundo do Jacaré-de-Papo-Amarelo
         </h2>
         <h3 className="font-bold text-xl md:text-3xl text-gray-200 mb-8 p-2 shadow-md">
-          <span className="border-b">Caiman</span>{" "}
-          <span className="border-b">latirostris</span>
+          <span className="underline">Caiman</span>{" "}
+          <span className="underline">latirostris</span>
         </h3>
         <button
           onClick={handlePlayWithSound}
