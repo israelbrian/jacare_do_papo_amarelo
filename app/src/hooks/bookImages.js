@@ -7,8 +7,9 @@ import book6 from "../assets/img/book-6.jpg";
 import book7 from "../assets/img/book-7.jpg";
 import book8 from "../assets/img/book-8.jpg";
 import book9 from "../assets/img/book-9.jpg";
+import book10 from "../assets/img/book-10.jpg";
 // app/src/hooks/bookImages.js
 
-export const bookImages = [book1, book2, book3, book4, book5, book6, book7, book8, book9];
+export const bookImages = [book1, book2, book3, book4, book5, book6, book7, book8, book9, book10];
 // Adicione ou remova imagens conforme necessário,
 // elas serão carregadas dinamicamente no carrossel.
