@@ -2,14 +2,14 @@
 
 const Home = () => {
   const menuItems = [
-    { title: 'Meu Livrinho' },
-    { title: 'Jogo da Memória' },
-    { title: 'Saiba Mais' },
-    { title: 'Quiz' },
+    { title: "Meu Livrinho" },
+    { title: "Jogo da Memória" },
+    { title: "Saiba Mais" },
+    { title: "Quiz" },
   ];
 
   return (
-    <div className="min-h-screen bg-brand-background text-white flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-brand-background text-white flex flex-col items-center justify-center p-4 animate-fade-in">
       <header className="text-center mb-12">
         <h1 className="text-4xl md:text-6xl font-bold text-brand-yellow mb-4">
           Jacaré-de-Papo-Amarelo
