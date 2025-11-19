@@ -1,0 +1,141 @@
+import { useState, useEffect, useCallback } from "react";
+import useResponsiveBg from "../hooks/useResponsiveBg";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+
+import initialCards from "../hooks/memoryGameImages";
+import Timer from "../components/common/Timer";
+import Card from "../components/common/Card";
+import GameOverModal from "../components/common/GameOverModal";
+import Lives from "../components/common/Lives";
+
+const shuffleCards = () => {
+  const duplicatedCards = [...initialCards, ...initialCards];
+  return duplicatedCards
+    .map((card, index) => ({ ...card, uniqueId: index }))
+    .sort(() => Math.random() - 0.5);
+};
+
+const MemoryGame = () => {
+  const backgroundImage = useResponsiveBg();
+  const [cards, setCards] = useState(shuffleCards());
+  const [flippedCards, setFlippedCards] = useState([]);
+  const [matchedPairs, setMatchedPairs] = useState([]);
+  const [lives, setLives] = useState(6);
+  const [isChecking, setIsChecking] = useState(false);
+  const [isGameOver, setIsGameOver] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(60);
+
+  const resetGame = useCallback(() => {
+    setCards(shuffleCards());
+    setFlippedCards([]);
+    setMatchedPairs([]);
+    setLives(6);
+    setIsGameOver(false);
+    setTimeLeft(60);
+    setIsChecking(false);
+  }, []);
+
+  useEffect(() => {
+    if (timeLeft === 0 || lives === 0) {
+      setIsGameOver(true);
+    }
+  }, [timeLeft, lives]);
+
+  useEffect(() => {
+    if (isGameOver) return;
+
+    const timer = setInterval(() => {
+      setTimeLeft((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [isGameOver]);
+
+  const checkForMatch = useCallback(() => {
+    const [firstCard, secondCard] = flippedCards;
+    if (firstCard.type === secondCard.type) {
+      setMatchedPairs((prev) => [...prev, firstCard.type]);
+    } else {
+      setLives((prev) => prev - 1);
+    }
+    setTimeout(() => {
+      setFlippedCards([]);
+      setIsChecking(false);
+    }, 1000);
+  }, [flippedCards]);
+
+  useEffect(() => {
+    if (flippedCards.length === 2) {
+      setIsChecking(true);
+      checkForMatch();
+    }
+  }, [flippedCards, checkForMatch]);
+
+  const handleCardClick = (clickedCard) => {
+    if (
+      isChecking ||
+      flippedCards.length === 2 ||
+      flippedCards.some((c) => c.uniqueId === clickedCard.uniqueId) ||
+      matchedPairs.includes(clickedCard.type)
+    ) {
+      return;
+    }
+    setFlippedCards((prev) => [...prev, clickedCard]);
+  };
+
+  return (
+    <div
+      style={{ backgroundImage }}
+      className="min-h-screen bg-cover bg-center bg-no-repeat flex flex-col justify-center items-center animate-fade-in relative p-4"
+    >
+      <Link
+        to="/home"
+        className="absolute top-4 left-4 md:top-10 md:left-12 text-white p-5 rounded-full bg-brand-green hover:bg-brand-green-light transition-colors duration-300 shadow-lg"
+        aria-label="Voltar para a página inicial"
+      >
+        <FaArrowLeft size={20} />
+      </Link>
+
+      {isGameOver && <GameOverModal onRetry={resetGame} />}
+
+      <header className="text-center mb-8">
+        <h1 className="text-4xl md:text-6xl font-black text-gray-200 mb-4 -tracking-tight [text-shadow:4px_3px_3px_#084808]">
+          Jogo da Memória
+        </h1>
+        <h2 className="text-xl md:text-4xl font-semibold text-gray-200 [text-shadow:2px_4px_3px_#084808]">
+          Teste a sua memória!
+        </h2>
+      </header>
+
+      <div className="bg-brand-green-dark p-4 rounded-lg shadow-lg flex flex-col items-center w-auto">
+        <div className="grid grid-cols-4 grid-rows-4 gap-2 md:gap-4 w-[80vw] h-[80vw] md:w-[500px] md:h-[500px]">
+          {cards.map((card) => (
+            <Card
+              key={card.uniqueId}
+              card={card}
+              isFlipped={
+                flippedCards.some((c) => c.uniqueId === card.uniqueId) ||
+                matchedPairs.includes(card.type)
+              }
+              isMismatched={
+                flippedCards.length === 2 &&
+                !matchedPairs.includes(card.type) &&
+                flippedCards.some((c) => c.uniqueId === card.uniqueId)
+              }
+              isMatched={matchedPairs.includes(card.type)}
+              onClick={() => handleCardClick(card)}
+            />
+          ))}
+        </div>
+
+        <div className="flex items-center justify-between mt-4 w-full max-w-md text-white px-2">
+          <Lives count={lives} />
+          <Timer timeLeft={timeLeft} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default MemoryGame;
