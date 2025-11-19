@@ -25,7 +25,7 @@ const Book = () => {
     >
       <Link
         to="/home"
-        className="absolute top-6 left-6 text-white p-5 rounded-full bg-brand-green hover:bg-brand-green-light transition-colors duration-300 shadow-lg"
+        className="absolute top-4 left-4 md:top-10 md:left-12 text-white p-5 rounded-full bg-brand-green hover:bg-brand-green-light transition-colors duration-300 shadow-lg"
         aria-label="Voltar para a página inicial"
       >
         <FaArrowLeft size={20} />
@@ -53,7 +53,7 @@ const Book = () => {
           <button
             onClick={goToPreviousPage}
             disabled={currentPage === 0}
-            className="p-2 rounded-full bg-brand-green disabled:bg-gray-500 disabled:cursor-not-allowed"
+            className="p-2 rounded-full bg-brand-green hover:bg-brand-green-light disabled:bg-gray-500 disabled:cursor-not-allowed"
             aria-label="Página anterior"
           >
             <FaArrowLeft />
@@ -64,7 +64,7 @@ const Book = () => {
           <button
             onClick={goToNextPage}
             disabled={currentPage === totalPages - 1}
-            className="p-2 rounded-full bg-brand-green disabled:bg-gray-500 disabled:cursor-not-allowed"
+            className="p-2 rounded-full bg-brand-green hover:bg-brand-green-light disabled:bg-gray-500 disabled:cursor-not-allowed"
             aria-label="Próxima página"
           >
             <FaArrowRight />
