@@ -8,6 +8,7 @@ import Timer from "../components/common/Timer";
 import Card from "../components/common/Card";
 import GameOverModal from "../components/common/GameOverModal";
 import Lives from "../components/common/Lives";
+import GameWinModal from "../components/common/GameWinModal";
 
 const shuffleCards = () => {
   const duplicatedCards = [...initialCards, ...initialCards];
@@ -24,23 +25,41 @@ const MemoryGame = () => {
   const [lives, setLives] = useState(6);
   const [isChecking, setIsChecking] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
+  const [isGameWon, setIsGameWon] = useState(false);
   const [timeLeft, setTimeLeft] = useState(60);
+  const [retryCount, setRetryCount] = useState(0);
+  const [justMatchedType, setJustMatchedType] = useState(null);
 
   const resetGame = useCallback(() => {
-    setCards(shuffleCards());
+    const nextRetryCount = retryCount + 1;
+    setRetryCount(nextRetryCount);
+
+    // Embaralha apenas na 5ª tentativa
+    if (nextRetryCount % 5 === 0) {
+      setCards(shuffleCards());
+    }
+
     setFlippedCards([]);
     setMatchedPairs([]);
     setLives(6);
     setIsGameOver(false);
+    setIsGameWon(false);
     setTimeLeft(60);
     setIsChecking(false);
-  }, []);
+  }, [retryCount]);
 
   useEffect(() => {
     if (timeLeft === 0 || lives === 0) {
       setIsGameOver(true);
     }
   }, [timeLeft, lives]);
+
+  useEffect(() => {
+    // 8 é o número de pares únicos
+    if (matchedPairs.length === 8) {
+      setIsGameWon(true);
+    }
+  }, [matchedPairs]);
 
   useEffect(() => {
     if (isGameOver) return;
@@ -56,17 +75,19 @@ const MemoryGame = () => {
     const [firstCard, secondCard] = flippedCards;
     if (firstCard.type === secondCard.type) {
       setMatchedPairs((prev) => [...prev, firstCard.type]);
+      setJustMatchedType(firstCard.type);
     } else {
       setLives((prev) => prev - 1);
     }
     setTimeout(() => {
       setFlippedCards([]);
       setIsChecking(false);
+      setJustMatchedType(null); // Limpa o efeito de acerto
     }, 1000);
   }, [flippedCards]);
 
   useEffect(() => {
-    if (flippedCards.length === 2) {
+    if (flippedCards.length === 2 && !isChecking) {
       setIsChecking(true);
       checkForMatch();
     }
@@ -98,6 +119,7 @@ const MemoryGame = () => {
       </Link>
 
       {isGameOver && <GameOverModal onRetry={resetGame} />}
+      {isGameWon && <GameWinModal onRetry={resetGame} />}
 
       <header className="text-center mb-8">
         <h1 className="text-4xl md:text-6xl font-black text-gray-200 mb-4 -tracking-tight [text-shadow:4px_3px_3px_#084808]">
@@ -122,6 +144,10 @@ const MemoryGame = () => {
                 flippedCards.length === 2 &&
                 !matchedPairs.includes(card.type) &&
                 flippedCards.some((c) => c.uniqueId === card.uniqueId)
+              }
+              isJustMatched={
+                justMatchedType === card.type &&
+                !matchedPairs.includes(card.type)
               }
               isMatched={matchedPairs.includes(card.type)}
               onClick={() => handleCardClick(card)}
