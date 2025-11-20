@@ -17,4 +17,8 @@ caso o tailwindcss de algum erro: npm i tailwindcss@3 postcss autoprefixer
 npx tailwindcss -i ./src/input.css -o ./static/css/output.css --watch (corrigir)
 npx tailwindcss -i ./src/input.css -o ./static/css/output.css --minify (corrigir)
 
+(jogo da memoria)
+Para ver a tela de vitória: http://localhost:3000/memory-game?test=win
+
+Para ver a tela de derrota: http://localhost:3000/memory-game?test=lose
 ``` 

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import useResponsiveBg from "../hooks/useResponsiveBg";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 
 import initialCards from "../hooks/memoryGameImages";
@@ -29,6 +29,20 @@ const MemoryGame = () => {
   const [timeLeft, setTimeLeft] = useState(60);
   const [retryCount, setRetryCount] = useState(0);
   const [justMatchedType, setJustMatchedType] = useState(null);
+
+  const location = useLocation();
+
+  // Backdoor para testes rápidos via URL
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const testMode = queryParams.get("test");
+
+    if (testMode === "win") {
+      setIsGameWon(true);
+    } else if (testMode === "lose") {
+      setIsGameOver(true);
+    }
+  }, [location]);
 
   const resetGame = useCallback(() => {
     const nextRetryCount = retryCount + 1;
