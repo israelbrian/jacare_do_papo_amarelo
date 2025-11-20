@@ -20,7 +20,7 @@ const Home = () => {
     >
       <header className="text-center mb-12">
         <h1 className="text-4xl md:text-6xl font-black text-gray-200 mb-4 -tracking-tight [text-shadow:4px_3px_3px_#084808]">
-          Jacaré-de-Papo-Amarelo
+          Jacaré-do-Papo-Amarelo
         </h1>
         <h2 className="text-xl md:text-4xl font-semibold text-gray-200 [text-shadow:2px_4px_3px_#084808]">
           Explore o mundo deste incrível animal

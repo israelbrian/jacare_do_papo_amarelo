@@ -90,7 +90,7 @@ const Welcome = () => {
           Bem-vindo!
         </h1>
         <h2 className="text-xl md:text-3xl text-gray-200 mb-5 md:mb-8 shadow-md">
-          Uma jornada pelo mundo do Jacaré-de-Papo-Amarelo
+          Uma jornada pelo mundo do Jacaré-do-Papo-Amarelo
         </h2>
         <h3 className="font-bold text-xl md:text-3xl text-gray-200 mb-8 p-2 shadow-md">
           <span className="underline">Caiman</span>{" "}
