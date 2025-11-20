@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaArrowLeft, FaRedo } from "react-icons/fa";
+import RainEffect from "./RainEffect";
 
 const GameOverModal = ({ onRetry }) => (
   <div className="absolute inset-0 bg-black bg-opacity-75 flex flex-col justify-center items-center z-50 animate-fade-in">
+    <RainEffect />
     <h2 className="text-5xl font-black text-white mb-8 [text-shadow:2px_2px_4px_#000]">
       Você Perdeu!
     </h2>
