@@ -86,13 +86,13 @@ const Welcome = () => {
           userInteracted ? "opacity-0" : "opacity-100"
         } bg-black bg-opacity-30`}
       >
-        <h1 className="text-4xl md:text-7xl font-bold text-white mb-5 shadow-lg">
+        <h1 className="text-4xl md:text-9xl font-bold text-white mb-5 [text-shadow:4px_3px_7px_#084808]">
           Bem-vindo!
         </h1>
-        <h2 className="text-xl md:text-3xl text-gray-200 mb-5 md:mb-8 shadow-md">
+        <h2 className="text-xl md:text-3xl text-gray-200 mb-5 md:mb-2 [text-shadow:4px_3px_7px_#084808]">
           Uma jornada pelo mundo do Jacaré-do-Papo-Amarelo
         </h2>
-        <h3 className="font-bold text-xl md:text-3xl text-gray-200 mb-8 p-2 shadow-md">
+        <h3 className="font-bold text-xl md:text-3xl text-gray-200 mb-8 p-2 [text-shadow:4px_3px_3px_#084808]">
           <span className="underline">Caiman</span>{" "}
           <span className="underline">latirostris</span>
         </h3>
