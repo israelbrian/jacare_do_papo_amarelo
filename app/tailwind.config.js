@@ -9,6 +9,7 @@ export default {
         "brand-green-light": "#86A873", // Exemplo de verde claro
         "brand-green": "#6b8e23", // Exemplo de verde claro
         "brand-yellow": "#F2E3A0", // Exemplo de amarelo
+        "brand-yellow-background": '#EEEBD8',
         "brand-background": "#2B3D41", // Tom de fundo baseado na imagem
       },
       keyframes: {

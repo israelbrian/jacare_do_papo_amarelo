@@ -71,7 +71,7 @@ const QuizGame = () => {
         className="w-[90%] max-w-[800px] h-[600px] bg-contain bg-no-repeat bg-center p-8 flex flex-col items-center justify-start"
         style={{ backgroundImage: `url(${cardBg})` }}
       >
-        <div className="w-full max-w-[600px] mt-20">
+        <div className="w-full max-w-[400px] mt-20">
           <Question question={currentQuestion.question} />
 
           <div className="mt-8 space-y-4">
