@@ -1,5 +1,4 @@
 import { useState, useCallback } from "react";
-import useResponsiveBg from "../hooks/useResponsiveBg";
 import quizQuestions from "../hooks/quizQuestions";
 import Question from "../components/quiz/Question";
 import AnswerOption from "../components/quiz/AnswerOption";
@@ -8,7 +7,6 @@ import GameOverQuiz from "../components/quiz/GameOverQuiz";
 import cardBg from "../assets/img/quiz-game-empty.png";
 
 const QuizGame = () => {
-  const bgImage = useResponsiveBg();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [score, setScore] = useState(0);
@@ -116,7 +114,6 @@ const QuizGame = () => {
   return (
     <div
       className="bg-brand-background min-h-screen bg-cover bg-center flex flex-col items-center justify-center animate-fade-in relative"
-      // style={{ backgroundImage: bgImage }}
     >
 
       <header className="text-center">
