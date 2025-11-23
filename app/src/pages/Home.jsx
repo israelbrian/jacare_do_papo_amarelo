@@ -8,7 +8,7 @@ const Home = () => {
     { title: "Meu Livrinho", path: "/book" },
     { title: "Jogo da Memória", path: "/memory-game" },
     { title: "Saiba Mais" },
-    { title: "Quiz" },
+    { title: "Quiz", path: "/quiz-game" },
   ];
 
   const backgroundImage = useResponsiveBg();
