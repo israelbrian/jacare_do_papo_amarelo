@@ -81,8 +81,8 @@ const QuizGame = () => {
               if (feedback && selectedAnswer === optionLetter) {
                 feedbackClass =
                   feedback === "correct"
-                    ? "border-green-500 ring-2 ring-green"
-                    : "border-red-500 ring-2 ring-red";
+                    ? "border-green-500 ring-2 ring-green-500"
+                    : "border-red-500 ring-2 ring-red-500";
               }
 
               return (
@@ -112,7 +112,7 @@ const QuizGame = () => {
   };
 
   return (
-    <div className="bg-brand-background min-h-screen bg-cover bg-center flex flex-col items-center justify-center animate-fade-in relative">
+    <div className="bg-brand-background min-h-screen bg-fixed bg-cover flex flex-col items-center justify-center animate-fade-in relative">
       <header className="text-center">
         <h1 className="text-4xl md:text-6xl pt-6 font-black text-gray-200 -tracking-tight [text-shadow:4px_3px_3px_#084808]">
           Quiz do Jacaré
