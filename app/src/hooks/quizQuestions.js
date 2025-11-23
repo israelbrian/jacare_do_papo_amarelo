@@ -15,7 +15,7 @@ const createQuestion = (question, optionA, optionB, correctAnswer) => ({
 // Crie suas 7 questões aqui, alternando a resposta correta.
 const quizQuestions = [
   createQuestion(
-    "Pergunta genérica asasasas asasasa asasas asasas 1?",
+    "Pergunta genérica asasasas asasasa asasas asasas sasasasa asasasasasasas 1?",
     "Resposta asasasasa aasasa A (Errada)",
     "Resposta asasasa asasas asas B (Certa)",
     "B"

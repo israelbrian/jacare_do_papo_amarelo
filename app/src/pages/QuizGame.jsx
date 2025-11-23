@@ -5,7 +5,7 @@ import Question from "../components/quiz/Question";
 import AnswerOption from "../components/quiz/AnswerOption";
 import GameWinQuiz from "../components/quiz/GameWinQuiz";
 import GameOverQuiz from "../components/quiz/GameOverQuiz";
-import cardBg from "../assets/img/card-quiz-game-empty.png";
+import cardBg from "../assets/img/quiz-game-empty.png";
 
 const QuizGame = () => {
   const bgImage = useResponsiveBg();
@@ -68,10 +68,10 @@ const QuizGame = () => {
 
     return (
       <div
-        className="w-[90%] max-w-[800px] h-[600px] bg-contain bg-no-repeat bg-center p-8 flex flex-col items-center justify-start"
+        className="w-[90%] md:max-w-[1000px] md:h-[800px] max-w-[600px] h-[400px] bg-contain bg-no-repeat bg-center flex flex-col items-center justify-start"
         style={{ backgroundImage: `url(${cardBg})` }}
       >
-        <div className="w-full max-w-[400px] mt-20">
+        <div className="w-full md:max-w-[600px] max-w-[250px] h-[100px] mt-20">
           <Question question={currentQuestion.question} />
 
           <div className="mt-8 space-y-4">
@@ -83,8 +83,8 @@ const QuizGame = () => {
               if (feedback && selectedAnswer === optionLetter) {
                 feedbackClass =
                   feedback === "correct"
-                    ? "border-green-500"
-                    : "border-red-500";
+                    ? "border-green-500 ring-2 ring-green"
+                    : "border-red-500 ring-2 ring-red";
               }
 
               return (
@@ -115,14 +115,16 @@ const QuizGame = () => {
 
   return (
     <div
-      className="min-h-screen bg-cover bg-center flex flex-col items-center justify-center"
-      style={{ backgroundImage: bgImage }}
+      className="bg-brand-background min-h-screen bg-cover bg-center flex flex-col items-center justify-center animate-fade-in relative"
+      // style={{ backgroundImage: bgImage }}
     >
-      <header className="w-full text-center py-4">
-        <h1 className="text-4xl font-bold text-white [text-shadow:2px_2px_4px_#000]">
+
+      <header className="text-center">
+        <h1 className="text-4xl md:text-6xl pt-6 font-black text-gray-200 -tracking-tight [text-shadow:4px_3px_3px_#084808]">
           Quiz do Jacaré
         </h1>
       </header>
+
       <main className="flex-grow flex items-center justify-center w-full">
         {renderGameContent()}
       </main>
