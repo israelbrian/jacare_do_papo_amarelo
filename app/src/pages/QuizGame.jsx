@@ -66,10 +66,10 @@ const QuizGame = () => {
 
     return (
       <div
-        className="w-[90%] md:max-w-[1000px] md:h-[800px] max-w-[600px] h-[400px] bg-contain bg-no-repeat bg-center flex flex-col items-center justify-start"
+        className="w-[90%] md:max-w-[1000px] md:h-[800px] max-w-[600px] h-[400px] bg-contain bg-no-repeat bg-center flex flex-col items-center justify-center"
         style={{ backgroundImage: `url(${cardBg})` }}
       >
-        <div className="w-full md:max-w-[600px] max-w-[250px] h-[100px] mt-20">
+        <div className="w-full md:max-w-[600px] max-w-[250px]">
           <Question question={currentQuestion.question} />
 
           <div className="mt-8 space-y-4">
@@ -112,10 +112,7 @@ const QuizGame = () => {
   };
 
   return (
-    <div
-      className="bg-brand-background min-h-screen bg-cover bg-center flex flex-col items-center justify-center animate-fade-in relative"
-    >
-
+    <div className="bg-brand-background min-h-screen bg-cover bg-center flex flex-col items-center justify-center animate-fade-in relative">
       <header className="text-center">
         <h1 className="text-4xl md:text-6xl pt-6 font-black text-gray-200 -tracking-tight [text-shadow:4px_3px_3px_#084808]">
           Quiz do Jacaré
