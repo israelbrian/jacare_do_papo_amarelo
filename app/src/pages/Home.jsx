@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <div
       style={{ backgroundImage }}
-      className="min-h-screen bg-cover bg-center bg-no-repeat  flex flex-col items-center justify-center p-4 animate-fade-in"
+      className="absolute top-0 left-0 w-full h-full overflow-hidden min-h-screen bg-cover bg-center bg-no-repeat  flex flex-col items-center justify-center p-4 animate-fade-in"
     >
       <header className="text-center mb-12">
         <h1 className="text-4xl md:text-6xl font-black text-gray-200 mb-4 -tracking-tight [text-shadow:4px_3px_3px_#084808]">
