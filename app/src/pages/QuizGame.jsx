@@ -144,7 +144,7 @@ const QuizGame = () => {
       </Link>
 
       <header className="text-center 2xl:mb-8 mb-5">
-        <h1 className="2xl:text-6xl md:text-5xl text-4xl font-black text-gray-200 mb-4 -tracking-tight [text-shadow:4px_3px_3px_#084808]">
+        <h1 className="2xl:text-6xl md:text-5xl text-4xl font-black text-gray-200 mb-3 -tracking-tight [text-shadow:4px_3px_3px_#084808]">
           Quiz do Jacaré
         </h1>
       </header>
