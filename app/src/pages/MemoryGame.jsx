@@ -9,6 +9,7 @@ import Card from "../components/common/Card";
 import GameOverModal from "../components/common/GameOverModal";
 import Lives from "../components/common/Lives";
 import GameWinModal from "../components/common/GameWinModal";
+import DifficultyModal from "../components/common/DifficultyModal";
 
 const shuffleCards = () => {
   const duplicatedCards = [...initialCards, ...initialCards];
@@ -26,8 +27,9 @@ const MemoryGame = () => {
   const [isChecking, setIsChecking] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
   const [isGameWon, setIsGameWon] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(120);
+  const [timeLeft, setTimeLeft] = useState(90);
   const [retryCount, setRetryCount] = useState(0);
+  const [difficulty, setDifficulty] = useState(null); // 'facil' ou 'desafiador'
   const [justMatchedType, setJustMatchedType] = useState(null);
 
   const location = useLocation();
@@ -58,39 +60,40 @@ const MemoryGame = () => {
     setLives(6);
     setIsGameOver(false);
     setIsGameWon(false);
-    setTimeLeft(120);
+    setTimeLeft(90);
     setIsChecking(false);
+    setDifficulty(null); // Volta para a tela de seleção de dificuldade
   }, [retryCount]);
 
   useEffect(() => {
-    if (timeLeft === 0 || lives === 0) {
+    if (timeLeft === 0 || (lives === 0 && difficulty === "desafiador")) {
       setIsGameOver(true);
     }
-  }, [timeLeft, lives]);
+  }, [timeLeft, lives, difficulty]);
 
   useEffect(() => {
-    // 8 é o número de pares únicos
+    // 8 é o número de pares únicos de acordo com memoryGameImages.js
     if (matchedPairs.length === 8) {
       setIsGameWon(true);
     }
   }, [matchedPairs]);
 
   useEffect(() => {
-    if (isGameOver) return;
+    if (isGameOver || difficulty === null) return; // Não inicia o timer antes de escolher a dificuldade
 
     const timer = setInterval(() => {
       setTimeLeft((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [isGameOver]);
+  }, [isGameOver, difficulty]);
 
   const checkForMatch = useCallback(() => {
     const [firstCard, secondCard] = flippedCards;
     if (firstCard.type === secondCard.type) {
       setMatchedPairs((prev) => [...prev, firstCard.type]);
       setJustMatchedType(firstCard.type);
-    } else {
+    } else if (difficulty === "desafiador") {
       setLives((prev) => prev - 1);
     }
     setTimeout(() => {
@@ -98,7 +101,7 @@ const MemoryGame = () => {
       setIsChecking(false);
       setJustMatchedType(null); // Limpa o efeito de acerto
     }, 1000);
-  }, [flippedCards]);
+  }, [flippedCards, difficulty]);
 
   useEffect(() => {
     if (flippedCards.length === 2 && !isChecking) {
@@ -109,6 +112,7 @@ const MemoryGame = () => {
 
   const handleCardClick = (clickedCard) => {
     if (
+      difficulty === null || // Impede cliques antes do jogo começar
       isChecking ||
       flippedCards.length === 2 ||
       flippedCards.some((c) => c.uniqueId === clickedCard.uniqueId) ||
@@ -117,6 +121,10 @@ const MemoryGame = () => {
       return;
     }
     setFlippedCards((prev) => [...prev, clickedCard]);
+  };
+
+  const handleSelectDifficulty = (selectedDifficulty) => {
+    setDifficulty(selectedDifficulty);
   };
 
   return (
@@ -132,6 +140,9 @@ const MemoryGame = () => {
         <FaArrowLeft size={20} />
       </Link>
 
+      {difficulty === null && (
+        <DifficultyModal onSelectDifficulty={handleSelectDifficulty} />
+      )}
       {isGameOver && <GameOverModal onRetry={resetGame} />}
       {isGameWon && <GameWinModal onRetry={resetGame} />}
 
@@ -169,8 +180,12 @@ const MemoryGame = () => {
           ))}
         </div>
 
-        <div className="flex items-center justify-between mt-4 w-full max-w-md text-white px-2">
-          <Lives count={lives} />
+        <div
+          className={`flex items-center ${
+            difficulty === "facil" ? "justify-end" : "justify-between"
+          } mt-4 w-full max-w-md text-white px-2`}
+        >
+          {difficulty === "desafiador" && <Lives count={lives} />}
           <Timer timeLeft={timeLeft} />
         </div>
       </div>
