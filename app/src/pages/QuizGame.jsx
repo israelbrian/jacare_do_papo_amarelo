@@ -82,13 +82,13 @@ const QuizGame = () => {
 
     return (
       <div
-        className={`w-[90%] md:max-w-[1000px] md:h-[800px] max-w-[400px] h-[400px] bg-contain bg-no-repeat bg-center flex flex-col items-center justify-center rounded-lg 
+        className={`w-[90%] md:max-w-[1000px] md:h-[800px] max-w-[400px] h-[450px] bg-contain bg-no-repeat bg-center flex flex-col items-center justify-center rounded-lg 
           ${
           !isDesktop ? "bg-brand-background border border-brand-yellow" : ""
         }`}
         style={isDesktop ? { backgroundImage: `url(${cardBg})` } : {}}
       >
-        <div className="md:w-full w-[200px] md:max-w-[600px] max-w-[200px]">
+        <div className="md:w-full w-[300px] md:max-w-[600px] max-w-[300px]">
           <Question question={currentQuestion.question} />
 
           <div className="mt-8 space-y-4">
@@ -142,7 +142,7 @@ const QuizGame = () => {
       </Link>
 
       <header className="text-center">
-        <h1 className="text-4xl md:text-6xl pt-6 font-black text-gray-200 -tracking-tight [text-shadow:4px_3px_3px_#084808]">
+        <h1 className="text-4xl md:text-6xl md:pt-6 md:pb-0 pt-20 pb-3 font-black text-gray-200 -tracking-tight [text-shadow:4px_3px_3px_#084808]">
           Quiz do Jacaré
         </h1>
       </header>
