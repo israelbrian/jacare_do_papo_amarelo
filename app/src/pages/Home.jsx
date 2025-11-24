@@ -7,7 +7,7 @@ const Home = () => {
   const menuItems = [
     { title: "Meu Livrinho", path: "/book" },
     { title: "Jogo da Memória", path: "/memory-game" },
-    { title: "Cards Interativos", path: "/interactive-cards" },
+    { title: "Cards Informativos", path: "/interactive-cards" },
     { title: "Quiz", path: "/quiz-game" }
   ];
 
@@ -22,6 +22,10 @@ const Home = () => {
         <h1 className="text-4xl md:text-6xl font-black text-gray-200 mb-4 -tracking-tight [text-shadow:4px_3px_3px_#084808]">
           Jacaré-do-Papo-Amarelo
         </h1>
+        <h3 className="font-bold text-xl md:text-3xl text-gray-200 p-2 [text-shadow:4px_3px_3px_#084808]">
+          <span className="underline">Caiman</span>{" "}
+          <span className="underline">latirostris</span>
+        </h3>
         <h2 className="text-xl md:text-4xl font-semibold text-gray-200 [text-shadow:2px_4px_3px_#084808]">
           Explore o mundo deste incrível animal
         </h2>

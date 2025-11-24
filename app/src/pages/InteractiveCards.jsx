@@ -33,7 +33,7 @@ const InteractiveCards = () => {
 
       <header className="text-center mb-12">
         <h1 className="text-4xl md:text-6xl font-black text-gray-200 mb-4 -tracking-tight [text-shadow:4px_3px_3px_#084808]">
-          Cards Interativos
+          Cards Informativos
         </h1>
       </header>
 
