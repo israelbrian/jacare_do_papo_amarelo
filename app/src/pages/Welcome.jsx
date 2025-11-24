@@ -93,8 +93,7 @@ const Welcome = () => {
           Uma jornada pelo mundo do Jacaré-do-Papo-Amarelo
         </h2>
         <h2 className="italic font-bold text-xl md:text-3xl text-gray-200 mb-8 p-2 [text-shadow:4px_3px_3px_#084808]">
-          <span className="underline">Caiman</span>{" "}
-          <span className="underline">latirostris</span>
+          Caiman latirostris
         </h2>
         <button
           onClick={handlePlayWithSound}

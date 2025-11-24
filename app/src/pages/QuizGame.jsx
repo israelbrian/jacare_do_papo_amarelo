@@ -148,8 +148,7 @@ const QuizGame = () => {
           Quiz
         </h1>
         <h2 className="italic font-bold text-2xl md:text-4xl text-gray-200 [text-shadow:4px_3px_3px_#084808]">
-          <span className="underline">Caiman</span>{" "}
-          <span className="underline">latirostris</span>
+          Caiman latirostris
         </h2>
       </header>
 

@@ -23,8 +23,7 @@ const Home = () => {
           Jacaré-do-Papo-Amarelo
         </h1>
         <h2 className="italic font-bold text-2xl md:text-4xl text-gray-200 p-2 [text-shadow:4px_3px_3px_#084808]">
-          <span className="underline">Caiman</span>{" "}
-          <span className="underline">latirostris</span>
+          Caiman latirostris
         </h2>
         <h2 className="text-xl md:text-4xl font-semibold text-gray-200 [text-shadow:2px_4px_3px_#084808]">
           Explore o mundo deste incrível animal
