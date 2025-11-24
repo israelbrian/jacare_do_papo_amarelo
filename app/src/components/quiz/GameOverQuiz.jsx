@@ -4,12 +4,12 @@ import { FaArrowLeft, FaRedo } from "react-icons/fa";
 import RainEffect from "../common/RainEffect";
 
 const GameOverQuiz = ({ score, onRetry }) => (
-  <div className="absolute inset-0 bg-black bg-opacity-75 flex flex-col justify-center items-center z-50 animate-fade-in">
+  <div className="absolute inset-0 bg-black bg-opacity-75 flex flex-col justify-center items-center z-50 animate-fade-in px-4">
     <RainEffect />
-    <h2 className="text-5xl font-black text-white mb-4 [text-shadow:2px_2px_4px_#000000]">
+    <h2 className="text-3xl md:text-5xl font-black text-white mb-4 text-center [text-shadow:2px_2px_4px_#000000]">
       Você Perdeu!
     </h2>
-    <p className="text-2xl text-white mb-8 [text-shadow:1px_1px_2px_#000]">
+    <p className="text-xl md:text-2xl text-white mb-8 text-center [text-shadow:1px_1px_2px_#000]">
       Você acertou {score} questões.
     </p>
     <div className="flex gap-4">

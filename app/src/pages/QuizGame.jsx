@@ -6,6 +6,9 @@ import GameWinQuiz from "../components/quiz/GameWinQuiz";
 import GameOverQuiz from "../components/quiz/GameOverQuiz";
 import cardBg from "../assets/img/quiz-game-empty.png";
 
+import { Link, useLocation } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+
 const QuizGame = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -112,7 +115,15 @@ const QuizGame = () => {
   };
 
   return (
-    <div className="bg-brand-background min-h-screen bg-fixed bg-cover flex flex-col items-center justify-center animate-fade-in relative">
+    <div className="bg-brand-background 2xl:h-screen 2xl:overflow-hidden bg-fixed bg-cover flex flex-col items-center justify-center animate-fade-in relative">
+      <Link
+        to="/home"
+        className="absolute top-4 left-4 md:top-10 md:left-12 text-white p-5 rounded-full bg-brand-green hover:bg-brand-green-light transition-colors duration-300 shadow-lg"
+        aria-label="Voltar para a página inicial"
+      >
+        <FaArrowLeft size={20} />
+      </Link>
+
       <header className="text-center">
         <h1 className="text-4xl md:text-6xl pt-6 font-black text-gray-200 -tracking-tight [text-shadow:4px_3px_3px_#084808]">
           Quiz do Jacaré
