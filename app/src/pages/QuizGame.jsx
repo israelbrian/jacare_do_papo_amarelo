@@ -145,8 +145,12 @@ const QuizGame = () => {
 
       <header className="text-center 2xl:mb-8 mb-5">
         <h1 className="2xl:text-6xl md:text-5xl text-4xl font-black text-gray-200 mb-3 -tracking-tight [text-shadow:4px_3px_3px_#084808]">
-          Quiz do Jacaré
+          Quiz
         </h1>
+        <h2 className="font-bold text-2xl md:text-4xl text-gray-200 [text-shadow:4px_3px_3px_#084808]">
+          <span className="underline">Caiman</span>{" "}
+          <span className="underline">latirostris</span>
+        </h2>
       </header>
 
       <main className="flex items-center justify-center w-full">
