@@ -69,10 +69,10 @@ const QuizGame = () => {
 
     return (
       <div
-        className="w-[90%] md:max-w-[1000px] md:h-[800px] max-w-[600px] h-[400px] bg-contain bg-no-repeat bg-center flex flex-col items-center justify-center"
+        className="w-[90%] md:max-w-[1000px] md:h-[800px] max-w-[400px] h-[400px] bg-contain bg-no-repeat bg-center flex flex-col items-center justify-center"
         style={{ backgroundImage: `url(${cardBg})` }}
       >
-        <div className="w-full md:max-w-[600px] max-w-[250px]">
+        <div className="md:w-full w-[200px] md:max-w-[600px] max-w-[200px]">
           <Question question={currentQuestion.question} />
 
           <div className="mt-8 space-y-4">
@@ -115,7 +115,7 @@ const QuizGame = () => {
   };
 
   return (
-    <div className="bg-brand-background 2xl:h-screen 2xl:overflow-hidden bg-fixed bg-cover flex flex-col items-center justify-center animate-fade-in relative">
+    <div className="2xl:absolute relative top-0 left-0 w-full h-full overflow-hidden bg-brand-background 2xl:h-screen 2xl:overflow-hidden bg-fixed bg-cover flex flex-col items-center justify-center animate-fade-in">
       <Link
         to="/home"
         className="absolute top-4 left-4 md:top-10 md:left-12 text-white p-5 rounded-full bg-brand-green hover:bg-brand-green-light transition-colors duration-300 shadow-lg"
