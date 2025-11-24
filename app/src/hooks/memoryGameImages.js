@@ -1,12 +1,12 @@
 // Importando imagens e componentes
-import card1 from "../assets/img/card-game-memory-1.png";
-import card2 from "../assets/img/card-game-memory-2.png";
-import card3 from "../assets/img/card-game-memory-3.png";
-import card4 from "../assets/img/card-game-memory-4.png";
-import card5 from "../assets/img/card-game-memory-5.png";
-import card6 from "../assets/img/card-game-memory-6.png";
-import card7 from "../assets/img/card-game-memory-7.png";
-import card8 from "../assets/img/card-game-memory-8.png";
+import card1 from "../assets/img/new-card-game-memory-1.png";
+import card2 from "../assets/img/new-card-game-memory-2.png";
+import card3 from "../assets/img/new-card-game-memory-3.png";
+import card4 from "../assets/img/new-card-game-memory-4.png";
+import card5 from "../assets/img/new-card-game-memory-5.png";
+import card6 from "../assets/img/new-card-game-memory-6.png";
+import card7 from "../assets/img/new-card-game-memory-7.png";
+import card8 from "../assets/img/new-card-game-memory-8.png";
 
 const initialCards = [
   { id: 1, img: card1, type: "card1" },
