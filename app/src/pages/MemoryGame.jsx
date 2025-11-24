@@ -26,7 +26,7 @@ const MemoryGame = () => {
   const [isChecking, setIsChecking] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
   const [isGameWon, setIsGameWon] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(60);
+  const [timeLeft, setTimeLeft] = useState(120);
   const [retryCount, setRetryCount] = useState(0);
   const [justMatchedType, setJustMatchedType] = useState(null);
 
@@ -58,7 +58,7 @@ const MemoryGame = () => {
     setLives(6);
     setIsGameOver(false);
     setIsGameWon(false);
-    setTimeLeft(60);
+    setTimeLeft(120);
     setIsChecking(false);
   }, [retryCount]);
 
