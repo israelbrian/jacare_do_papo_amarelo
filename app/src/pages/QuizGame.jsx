@@ -84,8 +84,8 @@ const QuizGame = () => {
       <div
         className={`w-[90%] md:max-w-[1000px] md:h-[800px] max-w-[400px] h-[450px] bg-contain bg-no-repeat bg-center flex flex-col items-center justify-center rounded-lg 
           ${
-          !isDesktop ? "bg-brand-background border border-brand-yellow" : ""
-        }`}
+            !isDesktop ? "bg-brand-background border border-brand-yellow" : ""
+          }`}
         style={isDesktop ? { backgroundImage: `url(${cardBg})` } : {}}
       >
         <div className="md:w-full w-[300px] md:max-w-[600px] max-w-[300px]">
@@ -131,8 +131,10 @@ const QuizGame = () => {
   };
 
   return (
-    <div className={`2xl:absolute  ${!isDesktop ? "absolute" : ""}
-    top-0 left-0 w-full h-full overflow-hidden bg-brand-background 2xl:h-screen 2xl:overflow-hidden bg-fixed bg-cover flex flex-col items-center justify-center animate-fade-in`}>
+    <div
+      className={`2xl:absolute  ${!isDesktop ? "absolute" : ""}
+    top-0 left-0 w-full h-full overflow-hidden bg-brand-background 2xl:h-screen 2xl:overflow-hidden bg-fixed bg-cover flex flex-col items-center justify-center animate-fade-in`}
+    >
       <Link
         to="/home"
         className="absolute top-4 left-4 md:top-10 md:left-12 text-white p-5 rounded-full bg-brand-green hover:bg-brand-green-light transition-colors duration-300 shadow-lg"
@@ -141,13 +143,13 @@ const QuizGame = () => {
         <FaArrowLeft size={20} />
       </Link>
 
-      <header className="text-center">
-        <h1 className="text-4xl md:text-6xl md:pt-6 md:pb-0 pt-20 pb-3 font-black text-gray-200 -tracking-tight [text-shadow:4px_3px_3px_#084808]">
+      <header className="text-center 2xl:mb-8 mb-5">
+        <h1 className="2xl:text-6xl md:text-5xl text-4xl font-black text-gray-200 mb-4 -tracking-tight [text-shadow:4px_3px_3px_#084808]">
           Quiz do Jacaré
         </h1>
       </header>
 
-      <main className="flex-grow flex items-center justify-center w-full">
+      <main className="flex items-center justify-center w-full">
         {renderGameContent()}
       </main>
     </div>
