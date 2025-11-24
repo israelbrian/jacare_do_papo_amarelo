@@ -147,7 +147,7 @@ const QuizGame = () => {
         <h1 className="2xl:text-6xl md:text-5xl text-4xl font-black text-gray-200 mb-3 -tracking-tight [text-shadow:4px_3px_3px_#084808]">
           Quiz
         </h1>
-        <h2 className="font-bold text-2xl md:text-4xl text-gray-200 [text-shadow:4px_3px_3px_#084808]">
+        <h2 className="italic font-bold text-2xl md:text-4xl text-gray-200 [text-shadow:4px_3px_3px_#084808]">
           <span className="underline">Caiman</span>{" "}
           <span className="underline">latirostris</span>
         </h2>
