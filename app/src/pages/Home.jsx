@@ -22,7 +22,7 @@ const Home = () => {
         <h1 className="text-4xl md:text-6xl font-black text-gray-200 mb-4 -tracking-tight [text-shadow:4px_3px_3px_#084808]">
           Jacaré-do-Papo-Amarelo
         </h1>
-        <h2 className="font-bold text-2xl md:text-4xl text-gray-200 p-2 [text-shadow:4px_3px_3px_#084808]">
+        <h2 className="italic font-bold text-2xl md:text-4xl text-gray-200 p-2 [text-shadow:4px_3px_3px_#084808]">
           <span className="underline">Caiman</span>{" "}
           <span className="underline">latirostris</span>
         </h2>

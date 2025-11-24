@@ -92,10 +92,10 @@ const Welcome = () => {
         <h2 className="text-xl md:text-3xl text-gray-200 mb-5 md:mb-2 [text-shadow:4px_3px_7px_#084808]">
           Uma jornada pelo mundo do Jacaré-do-Papo-Amarelo
         </h2>
-        <h3 className="font-bold text-xl md:text-3xl text-gray-200 mb-8 p-2 [text-shadow:4px_3px_3px_#084808]">
+        <h2 className="italic font-bold text-xl md:text-3xl text-gray-200 mb-8 p-2 [text-shadow:4px_3px_3px_#084808]">
           <span className="underline">Caiman</span>{" "}
           <span className="underline">latirostris</span>
-        </h3>
+        </h2>
         <button
           onClick={handlePlayWithSound}
           className="group flex items-center gap-4 px-8 py-4 text-xl md:text-2xl font-semibold border-2 border-brand-yellow bg-brand-yellow text-brand-green-dark rounded-lg hover:bg-transparent hover:text-brand-yellow transition-all duration-300 shadow-lg"
