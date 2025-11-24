@@ -7,8 +7,8 @@ const Home = () => {
   const menuItems = [
     { title: "Meu Livrinho", path: "/book" },
     { title: "Jogo da Memória", path: "/memory-game" },
-    { title: "Saiba Mais" },
-    { title: "Quiz", path: "/quiz-game" },
+    { title: "Cards Interativos", path: "/interactive-cards" },
+    { title: "Quiz", path: "/quiz-game" }
   ];
 
   const backgroundImage = useResponsiveBg();
@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <div
       style={{ backgroundImage }}
-      className="min-h-screen bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center p-4 animate-fade-in"
+      className="min-h-screen bg-cover bg-center bg-no-repeat  flex flex-col items-center justify-center p-4 animate-fade-in"
     >
       <header className="text-center mb-12">
         <h1 className="text-4xl md:text-6xl font-black text-gray-200 mb-4 -tracking-tight [text-shadow:4px_3px_3px_#084808]">

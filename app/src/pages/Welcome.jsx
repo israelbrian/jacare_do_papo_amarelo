@@ -2,8 +2,8 @@
 import { useEffect, useRef, useState } from "react";
 import { FaArrowRight } from "react-icons/fa"; // Importando ícones
 import { useNavigate } from "react-router-dom";
-import videoWelcomeMobile from "../assets/videos/video-welcome-mobile-1.mp4";
-import videoWelcomeDesktop from "../assets/videos/video-welcome-1.mp4";
+import videoWelcomeMobile from "../assets/videos/video-welcome-mobile.mp4";
+import videoWelcomeDesktop from "../assets/videos/video-welcome-new.mp4";
 
 const Welcome = () => {
   const navigate = useNavigate();
@@ -112,7 +112,7 @@ const Welcome = () => {
         autoPlay={userInteracted} // Só inicia o autoplay após a interação
         muted={!userInteracted} // Começa mudo, e o som é ativado no clique
         // O vídeo começa um pouco escuro e ganha vida após a interação
-        className={`w-full h-full object-cover md:object-top transition-opacity duration-500 ${
+        className={`w-full h-full object-cover 2xl:object-center md:object-top transition-opacity duration-500 ${
           userInteracted ? "opacity-100" : "opacity-40"
         }`}
         playsInline // Importante para autoplay em alguns navegadores mobile

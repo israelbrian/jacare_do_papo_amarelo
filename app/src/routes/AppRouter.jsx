@@ -5,6 +5,7 @@ import Home from '../pages/Home';
 import Book from '../pages/Book';
 import MemoryGame from '../pages/MemoryGame';
 import QuizGame from '../pages/QuizGame';
+import InteractiveCards from '../pages/InteractiveCards';
 
 const AppRouter = () => {
   return (
@@ -15,6 +16,7 @@ const AppRouter = () => {
         <Route path="/book" element={<Book />} />
         <Route path="/memory-game" element={<MemoryGame />} />
         <Route path="/quiz-game" element={<QuizGame />} />
+        <Route path="/interactive-cards" element={<InteractiveCards />} />
       </Routes>
     </Router>
   );
