@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import quizQuestions from "../hooks/quizQuestions";
 import Question from "../components/quiz/Question";
 import AnswerOption from "../components/quiz/AnswerOption";
@@ -15,8 +15,21 @@ const QuizGame = () => {
   const [score, setScore] = useState(0);
   const [feedback, setFeedback] = useState(null); // 'correct' or 'incorrect'
   const [isGameFinished, setIsGameFinished] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1280);
 
   const currentQuestion = quizQuestions[currentQuestionIndex];
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Telas HD têm 1280px de largura ou mais.
+      setIsDesktop(window.innerWidth >= 1280);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Limpeza do evento
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleAnswerSelect = (answer) => {
     setSelectedAnswer(answer);
@@ -69,8 +82,11 @@ const QuizGame = () => {
 
     return (
       <div
-        className="w-[90%] md:max-w-[1000px] md:h-[800px] max-w-[400px] h-[400px] bg-contain bg-no-repeat bg-center flex flex-col items-center justify-center"
-        style={{ backgroundImage: `url(${cardBg})` }}
+        className={`w-[90%] md:max-w-[1000px] md:h-[800px] max-w-[400px] h-[400px] bg-contain bg-no-repeat bg-center flex flex-col items-center justify-center rounded-lg 
+          ${
+          !isDesktop ? "bg-brand-background border border-brand-yellow" : ""
+        }`}
+        style={isDesktop ? { backgroundImage: `url(${cardBg})` } : {}}
       >
         <div className="md:w-full w-[200px] md:max-w-[600px] max-w-[200px]">
           <Question question={currentQuestion.question} />
@@ -115,7 +131,8 @@ const QuizGame = () => {
   };
 
   return (
-    <div className="2xl:absolute relative top-0 left-0 w-full h-full overflow-hidden bg-brand-background 2xl:h-screen 2xl:overflow-hidden bg-fixed bg-cover flex flex-col items-center justify-center animate-fade-in">
+    <div className={`2xl:absolute  ${!isDesktop ? "absolute" : ""}
+    top-0 left-0 w-full h-full overflow-hidden bg-brand-background 2xl:h-screen 2xl:overflow-hidden bg-fixed bg-cover flex flex-col items-center justify-center animate-fade-in`}>
       <Link
         to="/home"
         className="absolute top-4 left-4 md:top-10 md:left-12 text-white p-5 rounded-full bg-brand-green hover:bg-brand-green-light transition-colors duration-300 shadow-lg"
