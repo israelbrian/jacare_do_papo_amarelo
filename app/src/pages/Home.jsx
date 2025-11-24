@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 const Home = () => {
   const menuItems = [
     { title: "Meu Livrinho", path: "/book" },
-    { title: "Jogo da Memória", path: "/memory-game" },
     { title: "Cards Informativos", path: "/interactive-cards" },
+    { title: "Jogo da Memória", path: "/memory-game" },
     { title: "Quiz", path: "/quiz-game" }
   ];
 
